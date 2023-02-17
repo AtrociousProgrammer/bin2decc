@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Binary to Decimal Converter</title>
+
+</head>
+<body>
+	<h1>
+		Binary to Decimal Converter
+	</h1>
+
+	{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+	<form action="" method="get" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.decimal.label }}: {{ form.decimal(size=64) }}
+		</p>
+		{% if binary_result %}
+		<p>
+			Binary: {{ binary_result }}
+		</p>
+		{% endif %}
+		<p>
+			Convert to Binary: {{ form.submit() }}
+		</p>
+
+	</form>
+
+	<hr>
+
+	<form action="" method="get" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.binary.label }}: {{ form.binary(size=64) }}
+		</p>
+		{% if decimal_result %}
+		<p>
+			Decimal: {{ decimal_result }}
+		</p>
+		{% endif %}
+		<p>
+			Convert to Decimal: {{ form.submit() }}
+		</p>
+	
+	</form>
+		
+</body>
+</html>
